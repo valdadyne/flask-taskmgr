@@ -11,14 +11,14 @@
 </head>
     {% block style %}{% endblock %}
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">TaskMgr</a>
+                <a class="navbar-brand" href="/">Task Management</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">SignIn/SignUp</a></li>
-                <li><a class="btn disabled" href="#">SignOut</a></li>
+                <li><a href="/users"><i class="fa fa-user-o"></i> SignIn/SignUp</a></li>
+                <li><a class="hidden" href="#">SignOut</a></li>
             </ul>
         </div>
     </nav>
