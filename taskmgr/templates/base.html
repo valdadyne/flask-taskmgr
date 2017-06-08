@@ -22,6 +22,11 @@
             </ul>
         </div>
     </nav>
+    <div class="container">
+        {% if message %}
+        <p style="float:right;color:red;padding:1em;">{{ message }}</p>
+        {% endif %}
+    </div>
     {% block body %}{% endblock %}
 
     <!-- Scripts -->
