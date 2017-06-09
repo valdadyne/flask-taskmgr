@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect,session,url_for,json
 from taskmgr import app,db
-from tinydb import Query
+from tinydb import Query,where
 
 # Users Model
 Users = db.table(name='usr')
@@ -57,7 +57,7 @@ def login():
 
         if email and raw_pwd:
             User = Query()
-            if Users.search((User.email == email) and User.password == raw_pwd):
+            if User.search((where('email') == email) & (where('password') == raw_pwd)):
                 user = str(User['name'])
                 message = "You're Logged in as" + user
                 return render_template('index.html', message=message)
@@ -66,3 +66,8 @@ def login():
                 return render_template('users', message=message)
         return render_template('users.html', message="Missing Credentials")
     return render_template('users.html')
+
+
+@app.route('/dashboard', methods=['POST', 'GET'])
+def dashboard():
+    return render_template('dashboard.html')
