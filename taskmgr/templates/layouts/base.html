@@ -22,12 +22,18 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        {% if message %}
-        <p style="float:right;color:red;padding:1em;">{{ message }}</p>
-        {% endif %}
-    </div>
-    {% block body %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+    {% block body %}
+    {% endblock %}
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
