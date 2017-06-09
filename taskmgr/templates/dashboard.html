@@ -1,0 +1,94 @@
+{% extends "/layouts/default.html" %}
+{% block style %}
+    <link rel="stylesheet" href="static/css/dashboard.css">
+{% endblock %}
+{% block side_content %}
+    <div class="row side">
+        <div class="top">
+            <div class="top-message">
+                <p class="title" id="demo"></p>
+                <p class="title massive">Task Management</p>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary form-control" data-toggle="modal" data-target="#task_modal">
+                    <i style="margin-right:10px;" class="fa fa-plus"></i>Create a new task
+                </button>
+            </div>
+        </div>
+        <div class="row side-list">
+            <div class="tab-content">
+                <div id="completed" class="tab-pane active">
+                    <h5>Completed Tasks</h5>
+                    <p>Some content.</p>
+                </div>
+                <div id="not_completed" class="tab-pane fade">
+                    <h5>Not Completed Tasks</h5>
+                    <p>Some content in menu 1.</p>
+                </div>
+            </div>
+            {% for task in tasks %}
+            {% endfor %}
+        </div>
+        <div class="row side-list-tabs">
+            <ul class="pager">
+                <li class="active"><a data-toggle="tab" href="#completed">Completed</a></li>
+                <li><a data-toggle="tab" href="#not_completed">Not Completed</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>var d = new Date();document.getElementById("demo").innerHTML = d.toUTCString();</script>
+    <div id="task_modal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button style="color:#fff;" type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Task</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="taskname">Task name</label>
+                                <input class="form-control" name="taskname" id="taskname" type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="department">Department</label>
+                                <input class="form-control" name="department" id="department" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="assigned_person">Assigned Person</label>
+                                <input class="form-control" name="assigned_person" id="assigned_person" type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="backup_person">Backup Person</label>
+                                <input class="form-control" name="backup_person" id="backup_person" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <label for="start_date">Start Date</label>
+                                <input class="form-control" name="start_date" id="start_date" type="date">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="follow_up_date">Follow Up Date</label>
+                                <input class="form-control" name="follow_up_date" id="follow_up_date" type="date">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="completion_date">Completion Date</label>
+                                <input class="form-control" name="completion_date" id="completion_date" type="date">
+                            </div>
+                        </div>
+                    </form>
+                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block main_content %}
+{% endblock %}
