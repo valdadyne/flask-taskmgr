@@ -9,6 +9,16 @@
     padding:2em;
     padding-top:10vh;
 }
+.form ul>li>a{
+    color:#008744; border-color:#5cb85c;
+}
+.form ul>li>a:hover,
+.form ul>.active a,
+.form ul>.active a:hover,
+.form ul>li>a:focus,
+.form ul>.active a:focus{
+    background:#5cb85c;color:#fff;
+}
 .inner-form{
     border: solid .1em #f5f5f5;
     margin: 3em auto;
