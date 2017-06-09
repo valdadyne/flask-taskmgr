@@ -1,0 +1,90 @@
+.side{
+    height:100vh;
+    border: solid .1em #999;
+    background:#fff;
+    overflow-y:none;
+}
+.top{
+    position:relative;
+    float:none;
+    height:35vh;
+    background:#008744;
+    padding:0;margin:0;
+}
+.top-message{
+    height:25vh;
+    background:transparent;
+    color:#fff;
+}
+.top-message .title{
+    width:100%;
+    padding:0 10px;
+}
+.top-message .massive{
+    padding-top:-1em;
+    font-size:26px;
+}
+.top .form-group{
+    position: absolute;
+    margin:0;
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    bottom:2px;
+    right: 0;
+}
+.top .form-group button{
+    position:relative;
+    box-shadow: none;
+    background: none;
+    font-size:16px;
+    text-align:left;
+    padding:0 10px;
+    color:#fff;
+}
+.top .form-group button:focus {background: none; border: none;outline: none; }
+
+.side-list{
+    height:55vh;
+    position:relative;
+    float:none;
+    padding:10px;
+    margin:0;
+    width:contain;
+    background:#fff;
+    overflow-y:scroll;
+}
+.side-list-tabs{
+    width:100%;
+    margin:0 auto;padding:0;
+}
+.side-list-tabs ul{
+    text-align:center;
+}
+.side-list-tabs ul>li>a{
+    color:#008744; border-color:#5cb85c;
+    background:transparent;font-weight:bolder;
+}
+.side-list-tabs ul>li>a:hover,
+.side-list-tabs ul>.active a,
+.side-list-tabs ul>.active a:hover,
+.side-list-tabs ul>li>a:focus,
+.side-list-tabs ul>.active a:focus{
+    background:#5cb85c;color:#fff;
+}
+
+/* New Task Modal*/
+.modal-header{
+     background-color: #5cb85c;
+ }
+.modal-title{
+     color:#fff;
+}
+.modal-body form label{
+    font-weight:bold;
+    font-size:16px;
+}
+.modal-body form input{
+    color: #008744;font-size:16px;
+}
