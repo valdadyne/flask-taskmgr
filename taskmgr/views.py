@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect,session,url_for,json
 from taskmgr import app,db
 from tinydb import Query
 
@@ -43,6 +43,26 @@ def register():
                     'password': raw_pwd
                 })
                 message = "User has been created successfully"
-            return render_template('users.html', message=message)
+            return render_template('index.html', message=message)
+        return render_template('users.html', message="Missing Credentials")
+    return render_template('users.html')
+
+
+@app.route('/SignIn', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        message = None
+        email = request.form['email']
+        raw_pwd = request.form['password']
+
+        if email and raw_pwd:
+            User = Query()
+            if Users.search((User.email == email) and User.password == raw_pwd):
+                user = str(User['name'])
+                message = "You're Logged in as" + user
+                return render_template('index.html', message=message)
+            else:
+                message = "Incorrect Credentials. Try Again!!"
+                return render_template('users', message=message)
         return render_template('users.html', message="Missing Credentials")
     return render_template('users.html')
